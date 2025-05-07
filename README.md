@@ -6,7 +6,7 @@ MELD 模型的训练过程利用 LLaMA-Factory 框架进行，主要分为以下
 
     首先，克隆 LLaMA-Factory 仓库并设置环境：
 
-    \`\`\`bash
+    ```bash
     # 克隆 LLaMA-Factory 仓库 
     git clone https://github.com/hiyouga/LLaMA-Factory.git
     # 创建并激活 conda 环境
@@ -15,7 +15,7 @@ MELD 模型的训练过程利用 LLaMA-Factory 框架进行，主要分为以下
     # 安装 LLaMA-Factory
     cd LLaMA-Factory
     pip install -e '.[torch,metrics]'
-    \`\`\`
+    ```
 
 2.  **获取基础模型**
 
