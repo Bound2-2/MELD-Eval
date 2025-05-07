@@ -92,6 +92,7 @@ The MELD model is trained using the [LLaMA-Factory](https://github.com/hiyouga/L
 ## Model Merging
 
 After obtaining the trained pointwise scoring model and pairwise comparison model, we use the MergeKit tool to perform model merging, creating the final MELD evaluation model through different merging strategies.
+
 ---
 
 1.  **Installing MergeKit**
@@ -111,6 +112,7 @@ We provide various merging strategy configuration files in the `data/merge/` dir
 * `linear.yaml` - Linear weighted merging configuration.
 * `slerp.yaml` - Spherical linear interpolation merging configuration.
 * `ties.yaml` - Configuration based on TIES method.
+
 According to our experimental results, the DARE strategy provides the best performance while maintaining both evaluation capabilities.
 ---
 
