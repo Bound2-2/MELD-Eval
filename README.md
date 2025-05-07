@@ -100,6 +100,7 @@ First, install the MergeKit tool：
 ```bash
 pip install mergekit
 ```
+---
 
 2.  **Preparing Merge Configuration Files**
 
@@ -111,6 +112,8 @@ We provide various merging strategy configuration files in the `data/merge/` dir
 * `ties.yaml` - Configuration based on TIES method.
 
 According to our experimental results, the DARE strategy provides the best performance while maintaining both evaluation capabilities.
+---
+
 
 ### 3. Executing Model Merging
 
