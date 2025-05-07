@@ -70,27 +70,20 @@ The MELD model is trained using the [LLaMA-Factory](https://github.com/hiyouga/L
 
 ---
 
-4.  **Train the Pointwise Scoring Model**
+4.  **Train the Pointwise Grading and Pairwise Comparison Model**
 
     ```bash
     # Run the training script
-    bash scripts/train_pointwise.sh
+    bash model/train/train_pointwise.sh
+     # Run the training script
+    bash model/train/train_pairwise.sh
     ```
 
 ---
 
-5.  **Train the Pairwise Comparison Model**
-
-    ```bash
-    # Run the training script
-    bash scripts/train_pairwise.sh
-    ```
-
----
-
-6.  **Merge LoRA Weights into the Base Model**
+5.  **Merge LoRA Weights into the Base Model**
 
     ```bash
     # Run the merging script
-    bash scripts/merge_models.sh
+    bash model/train/merge_models.sh
     ```
