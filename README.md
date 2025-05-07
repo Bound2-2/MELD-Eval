@@ -21,9 +21,9 @@ MELD 模型的训练过程利用 LLaMA-Factory 框架进行，主要分为以下
 
     从 Hugging Face 下载 LLaMA-3-8B-Instruct 模型：
 
-    \`\`\`bash
+    ```bash
     git clone https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct
-    \`\`\`
+    ```
 
 3.  **数据准备**
 
@@ -34,14 +34,14 @@ MELD 模型的训练过程利用 LLaMA-Factory 框架进行，主要分为以下
 
     将这些文件复制到 LLaMA-Factory 的数据目录：
 
-    \`\`\`bash
+    ```bash
     cp /path/to/this/repo/data/train_for_llama_factory/pointwise.json /path/to/LLaMA-Factory/data/
     cp /path/to/this/repo/data/train_for_llama_factory/pairwise.json /path/to/LLaMA-Factory/data/
-    \`\`\`
+    ```
 
     然后，将数据集注册到 LLaMA-Factory 中。编辑 `llama_factory/data/dataset_info.json` 文件，添加以下内容：
 
-    \`\`\`json
+    ```bash
     {
       "MELD_pairwise": {
         "file_name": "pairwise.json",
@@ -60,25 +60,25 @@ MELD 模型的训练过程利用 LLaMA-Factory 框架进行，主要分为以下
         }
       }
     }
-    \`\`\`
+    ```
 
 4.  **训练逐点评分模型**
 
-    \`\`\`bash
+    ```bash
     # 执行训练脚本
     bash scripts/train_pointwise.sh
-    \`\`\`
+    ```
 
 5.  **训练成对比较模型**
 
-    \`\`\`bash
+    ```bash
     # 执行训练脚本
     bash scripts/train_pairwise.sh
-    \`\`\`
+    ```
 
 6.  **合并 LoRA 权重到基础模型**
 
-    \`\`\`bash
+    ```bash
     # 执行合并脚本
     bash scripts/merge_models.sh
-    \`\`\`
+   ```
