@@ -82,8 +82,49 @@ The MELD model is trained using the [LLaMA-Factory](https://github.com/hiyouga/L
 ---
 
 5.  **Merge LoRA Weights into the Base Model**
-
+   
     ```bash
     # Run the merging script
     bash model/train/merge_models.sh
     ```
+
+
+## Model Merging
+
+After obtaining the trained pointwise scoring model and pairwise comparison model, we use the MergeKit tool to perform model merging, creating the final MELD evaluation model through different merging strategies.
+
+1.  **Installing MergeKit**
+
+First, install the MergeKit tool：
+
+```bash
+pip install mergekit
+```
+
+2.  **Preparing Merge Configuration Files**
+
+We provide various merging strategy configuration files in the `data/merge/` directory, including:
+
+* `dare.yaml` - Configuration based on DARE (Drop And Rescale) strategy.
+* `linear.yaml` - Linear weighted merging configuration.
+* `slerp.yaml` - Spherical linear interpolation merging configuration.
+* `ties.yaml` - Configuration based on TIES method.
+
+According to our experimental results, the DARE strategy provides the best performance while maintaining both evaluation capabilities.
+
+### 3. Executing Model Merging
+
+Use the following command to execute model merging:
+
+```bash
+# Using DARE strategy to merge models
+mergekit-yaml data/merge/dare.yaml --out ./models/merged/MELD-8B
+
+# Or try other merging strategies
+# mergekit-yaml data/merge/linear.yaml --out ./models/merged/MELD-8B-linear
+# mergekit-yaml data/merge/slerp.yaml --out ./models/merged/MELD-8B-slerp
+# mergekit-yaml data/merge/ties.yaml --out ./models/merged/MELD-8B-ties
+```
+
+After merging is complete, the final MELD model will be saved in the `./models/merged/MELD-8B` directory.
+
