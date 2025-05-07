@@ -1,4 +1,4 @@
-### Model Training, Merging, and Quantization
+## Model Training, Merging, and Quantization
 ### Model Training Pipeline
 
 The MELD model is trained using the [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) framework. The process includes the following main steps: environment setup, data preparation, model training, and LoRA weight merging. The full workflow is provided below for researchers who wish to reproduce our results.
