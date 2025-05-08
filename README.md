@@ -142,12 +142,12 @@ Next, we'll quantize the merged model using [llama.cpp](https://github.com/ggml-
 1. **Environment Setup**
    
    First, install CMake:
-   * For Linux:
+   - For Linux:
     ```bash
      sudo apt update
      sudo apt install cmake
     ```
-   * For Mac:
+   - For Mac:
     ```bash
      brew install cmake
     ```
@@ -212,7 +212,7 @@ After 4-bit quantization, the MELD-8B model will be saved in the `./models/merge
 
 2. **模型推理**
     
-    * Pointwise Grading
+    - Pointwise Grading
     
     ```bash
     python evaluate_pointwise.py --model meld --input_file data.json --output_dir results/
@@ -254,24 +254,24 @@ After 4-bit quantization, the MELD-8B model will be saved in the `./models/merge
     ]
     ```
      Command-line Arguments
-    * `--model`: Evaluation model to run (meld, llama3, autoj, prometheus, pandalm, all)
-    * `--input_file`: Path to input JSON file
-    * `--output_dir`: Directory for output files
-    * `--criteria_dir`: Directory containing criteria files (required for MELD)
-    * `--*_model_path`: Paths to respective evaluation models
-    * `--seed`: Random seed for reproducibility
+    - `--model`: Evaluation model to run (meld, llama3, autoj, prometheus, pandalm, all)
+    - `--input_file`: Path to input JSON file
+    - `--output_dir`: Directory for output files
+    - `--criteria_dir`: Directory containing criteria files (required for MELD)
+    - `--*_model_path`: Paths to respective evaluation models
+    - `--seed`: Random seed for reproducibility
     
     Additional Pairwise Comparison Parameters
-    * `--response_order`: Response evaluation order (original, swapped)
+    - `--response_order`: Response evaluation order (original, swapped)
 ---
 3. **结果评估**
     
-    * Pointwise grading
+    - Pointwise grading
     
     ```bash
     python evaluate_pointwise.py --model all --input_file data.json --output_dir correlation_results.csv/
     ```
-    * Pariwise comparison
+    - Pariwise comparison
     
     ```bash
    python analyze_correlation.py --input_dir results/ --output_csv metrics_summary.csv
