@@ -184,9 +184,9 @@ After obtaining the trained pointwise scoring model and pairwise comparison mode
     mergekit-yaml ./MELD-Eval/models/merge/dare.yaml --out ./MELD-Eval/models/MELD/MELD-8B
 
     # Or try other merging strategies
-    # mergekit-yaml data/merge/linear.yaml --out ./MELD-Eval/models/MELD-8B-linear
-    # mergekit-yaml data/merge/slerp.yaml --out ./MELD-Eval/models/MELD-8B-slerp
-    # mergekit-yaml data/merge/ties.yaml --out ./MELD-Eval/models/MELD-8B-ties
+    # mergekit-yaml ./MELD-Eval/models/merge/linear.yaml --out ./MELD-Eval/models/MELD-8B-linear
+    # mergekit-yaml ./MELD-Eval/models/mergeslerp.yaml --out ./MELD-Eval/models/MELD-8B-slerp
+    # mergekit-yaml ./MELD-Eval/models/mergeties.yaml --out ./MELD-Eval/models/MELD-8B-ties
     ```
 
 After merging is complete, the final MELD model will be saved in the `./MELD-Eval/models/MELD/MELD-8B` directory.
