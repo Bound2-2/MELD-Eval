@@ -1,6 +1,0 @@
-1.User Satisfaction: For all key instructions (e.g., answer multiple questions or perform multiple tasks) and explicit constraints (e.g. word count, response length limit, word usage, output format, etc.) provided by the user, the response should be complete in following all of them without any omission.
-2.accuracy: All factual statements and theoretical explanations must be correct within the context of the discipline. This includes the correct application of theories, laws, and models relevant to the topic discussed.
-3.information richness: The response is encouraged to provide rich, detailed and professional information, e.g. by providing examples, explanations, citations, and additional information. 
-4.text quality: The response should be grammatically correct, free of spelling errors or typos, use punctuation marks properly and consistently. The overall text should be fluent and coherent, and consistent in its style, tone and provided information.
-5.Clarity and Structure: Content: Information should be presented in a clear, structured manner that logically progresses from introduction to conclusion, making complex ideas accessible and understandable to the audience.
-6.Logical Coherence: The response should ensure logical coherence, maintaining a clear and rational flow of ideas and arguments throughout.
