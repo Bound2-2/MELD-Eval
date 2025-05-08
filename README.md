@@ -1,18 +1,10 @@
 # ProjectName
 
 A Fine-Grained Evaluation Framework for Language Models: Combining Pointwise Grading and Pairwise Comparison
-
-<!-- PROJECT SHIELDS -->
-
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
  
 ## 目录
 
+```
 MELD-Eval/
 ├── README.md                      # Project overview and usage instructions
 ├── requirement.txt               # Python dependencies required for the project
@@ -60,6 +52,7 @@ MELD-Eval/
 │   └── infer/                    # Inference scripts for generating model outputs
 │       ├── pairwise_infer.py
 │       └── pointwise_infer.py
+```
 
 ## Model Training Pipeline
 
