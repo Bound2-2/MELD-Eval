@@ -1,4 +1,4 @@
-# MELD
+# MELD-Eval
 
 A Fine-Grained Evaluation Framework for Language Models: Combining Pointwise Grading and Pairwise Comparison
  
@@ -82,6 +82,8 @@ The MELD model is trained using the [LLaMA-Factory](https://github.com/hiyouga/L
     Download the LLaMA-3-8B-Instruct model from Hugging Face:
     
     ```bash
+    mkdir ./MELD-Eval/models/eval_model
+    cd ./MELD-Eval/models/eval_model
     git clone https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct
     ```
 
@@ -89,7 +91,7 @@ The MELD model is trained using the [LLaMA-Factory](https://github.com/hiyouga/L
 
 3. **Data Preparation**
     
-    We provide two key training datasets in this repository under the `/data/train_for_llama_factory/` directory:
+    We provide two key training datasets in this repository under the `./MELD-Eval/data/train_for_llama_factory/` directory:
     
     * `pointwise.json`: for pointwise scoring model training
     * `pairwise.json`: for pairwise comparison model training
@@ -97,11 +99,11 @@ The MELD model is trained using the [LLaMA-Factory](https://github.com/hiyouga/L
     Copy these files to the `data/` directory of LLaMA-Factory:
     
     ```bash
-    cp /path/to/this/repo/data/train_for_llama_factory/pointwise.json /path/to/LLaMA-Factory/data/
-    cp /path/to/this/repo/data/train_for_llama_factory/pairwise.json /path/to/LLaMA-Factory/data/
+    cp ./MELD-Eval/data/train_for_llama_factory/pointwise.json ./MELD-Eval/LLaMA-Factory/data/
+    cp ./MELD-Eval/data/train_for_llama_factory/pairwise.json ./MELD-Eval/LLaMA-Factory/data/
     ```
     
-    Then register the datasets in LLaMA-Factory by editing `llama_factory/data/dataset_info.json` and adding the following entries:
+    Then register the datasets in LLaMA-Factory by editing `./MELD-Eval/LLaMA-Factory/data/dataset_info.json` and adding the following entries:
     
     ```json
     {
@@ -130,9 +132,9 @@ The MELD model is trained using the [LLaMA-Factory](https://github.com/hiyouga/L
     
     ```bash
     # Run the training script
-    bash model/train/train_pointwise.sh
+    bash ./MELD-Eval/models/train/train_pointwise.sh
      # Run the training script
-    bash model/train/train_pairwise.sh
+    bash ./MELD-Eval/models/train/train_pairwise.sh
     ```
 
 ---
@@ -141,7 +143,7 @@ The MELD model is trained using the [LLaMA-Factory](https://github.com/hiyouga/L
     
     ```bash
     # Run the merging script
-    bash model/train/merge_models.sh
+    bash ./MELD-Eval/models/train/merge_models.sh
     ```
 
 ## Model Merging
@@ -162,7 +164,7 @@ After obtaining the trained pointwise scoring model and pairwise comparison mode
 
 2. **Preparing Merge Configuration Files**
 
-    We provide various merging strategy configuration files in the `data/merge/` directory, including:
+    We provide various merging strategy configuration files in the `./MELD-Eval/models/merge` directory, including:
 
     * `dare.yaml` - Configuration based on DARE (Drop And Rescale) strategy.
     * `linear.yaml` - Linear weighted merging configuration.
@@ -179,15 +181,15 @@ After obtaining the trained pointwise scoring model and pairwise comparison mode
 
     ```bash
     # Using DARE strategy to merge models
-    mergekit-yaml data/merge/dare.yaml --out ./models/merged/MELD-8B
+    mergekit-yaml ./MELD-Eval/models/merge/dare.yaml --out ./MELD-Eval/models/MELD/MELD-8B
 
     # Or try other merging strategies
-    # mergekit-yaml data/merge/linear.yaml --out ./models/merged/MELD-8B-linear
-    # mergekit-yaml data/merge/slerp.yaml --out ./models/merged/MELD-8B-slerp
-    # mergekit-yaml data/merge/ties.yaml --out ./models/merged/MELD-8B-ties
+    # mergekit-yaml data/merge/linear.yaml --out ./MELD-Eval/models/MELD-8B-linear
+    # mergekit-yaml data/merge/slerp.yaml --out ./MELD-Eval/models/MELD-8B-slerp
+    # mergekit-yaml data/merge/ties.yaml --out ./MELD-Eval/models/MELD-8B-ties
     ```
 
-After merging is complete, the final MELD model will be saved in the `./models/merged/MELD-8B` directory.
+After merging is complete, the final MELD model will be saved in the `./MELD-Eval/models/MELD/MELD-8B` directory.
 
 ## Model quantization
 
@@ -233,9 +235,9 @@ Next, we'll quantize the merged model using [llama.cpp](https://github.com/ggml-
 
 2. **Convert the Model to GGUF Format**
 
-   Next, we will convert the model stored in `./models/merged/MELD-8B` to the GGUF format.
+   Next, we will convert the model stored in `./MELD-Eval/models/MELD/MELD-8B` to the GGUF format.
    ```bash
-   python convert_hf_to_gguf.py /Users/liyijie/dare-merge-judge-llama-3-8b-instruct --outfile /Users/liyijie/dare-merge-judge-llama-3-8b-instruct-gguf
+   python convert_hf_to_gguf.py ./MELD-Eval/models/MELD/MELD-8B --outfile ./MELD-Eval/models/MELD/dare-merge-judge-llama-3-8b-instruct-gguf
    ```
 ---
 
@@ -244,10 +246,10 @@ Next, we'll quantize the merged model using [llama.cpp](https://github.com/ggml-
    Use the following command to execute model quantizing:
 
    ```bash
-   /Users/liyijie/llama.cpp/build/bin/llama-quantize /Users/liyijie/dare-merge-judge-llama-3-    8b-instruct-gguf /Users/liyijie/Q4_K-dare-merge-judge-llama-3-8b-instruct-gguf Q4_K
+   ./MELD-Eval/llama.cpp/build/bin/llama-quantize ./MELD-Eval/models/MELD/dare-merge-judge-llama-3-8b-instruct-gguf ./MELD-Eval/models/MELD/Q4_K-dare-merge-judge-llama-3-8b-instruct-gguf Q4_K
    ```
 
-After 4-bit quantization, the MELD-8B model will be saved in the `./models/merged/MELD-8B directory.`
+After 4-bit quantization, the MELD-8B model will be saved in the `./MELD-Eval/models/MELD/Q4_K-dare-merge-judge-llama-3-8b-instruct-gguf`
 
 ## Model Inference and Result Evaluation
 ---
