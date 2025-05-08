@@ -226,8 +226,7 @@ After 4-bit quantization, the MELD-8B model will be saved in the `./models/merge
         "answer_body": "Response to evaluate",
         "label": "Optional human reference score",  
         "category": "Category" 
-      },
-      ...
+      }
     ]
     ```
     
@@ -251,8 +250,7 @@ After 4-bit quantization, the MELD-8B model will be saved in the `./models/merge
         "answer2_body": "Second response",
         "label": "Human reference label (A, B, or Tie)",  
         "category": "Category" 
-      },
-      ...
+      }
     ]
     ```
      Command-line Arguments
