@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "question_body": "\nHow can I simplify my taxes for this year?",
+        "answer_body": "Don't save or invest interest earned on money you borrow to use for a down payment on a home.",
+        "label": 2.0,
+        "scenario": "seeking_advice",
+        "category": "casual conversation",
+        "complexity": {
+          "score": 2.69,
+          "level": "Medium Complexity",
+          "rule_based_score": 1.29,
+          "perplexity_score": 4.26,
+          "readability_score": 2.16,
+          "vocabulary_score": 3.07,
+          "category_boost": 0.05,
+          "refined_level": "Medium-Low"
+        }
+      },
+      {
+        "id": 2,
+        "question_body": "\nHow do I change the WhatsApp sound on an iPhone?",
+        "answer_body": "How do I disable the WhatsApp Read Receipts on an iPhone?\nHow do I block a contact on WhatsApp on an iPhone?",
+        "label": 1.0,
+        "scenario": "seeking_advice",
+        "category": "casual conversation",
+        "complexity": {
+          "score": 2.45,
+          "level": "Low Complexity",
+          "rule_based_score": 1.31,
+          "perplexity_score": 3.95,
+          "readability_score": 2.17,
+          "vocabulary_score": 2.24,
+          "category_boost": 0.05,
+          "refined_level": "Low"
+        }
+      },
+      {
+        "id": 3,
+        "question_body": "\nHi, can you write a limerick about India?",
+        "answer_body": "There once was a land so vast and wild\nWhose people spoke with a language so loud\nIn the city of Mumbai they lived and laughed\nWhile the tigers roamed in the jungle\n\nBut don't worry, they don't come near\nThe streets of the city where women earn\nFor though it's a magical land with a million wonders\nIndia is a safe place for all to find.",
+        "label": 3.0,
+        "scenario": "creative_writing",
+        "category": "writing",
+        "complexity": {
+          "score": 3.42,
+          "level": "High Complexity",
+          "rule_based_score": 1.67,
+          "perplexity_score": 4.55,
+          "readability_score": 3.42,
+          "vocabulary_score": 2.86,
+          "category_boost": 0.15,
+          "refined_level": "High"
+        }
+      },
+      {
+        "id": 4,
+        "question_body": "Explain the differences between intrinsic and extrinsic motivation in one sentence.\n",
+        "answer_body": "*   Intrinsic motivation refers to the desire to do something for the pleasure or satisfaction one derives from it, while extrinsic motivation refers to the desire to do something in order to achieve a desired outcome or to avoid an undesired outcome.",
+        "label": 9.0,
+        "scenario": "explaining_general",
+        "category": "professional knowledge",
+        "complexity": {
+          "score": 2.95,
+          "level": "Medium Complexity",
+          "rule_based_score": 2.2,
+          "perplexity_score": 2.73,
+          "readability_score": 4.21,
+          "vocabulary_score": 3.29,
+          "category_boost": 0.0,
+          "refined_level": "Medium"
+        }
+      },
+      {
+        "id": 5,
+        "question_body": "Answer the question with a numeric or a categorical or value.\nWhat type of government does Canada have?",
+        "answer_body": "1. A parliamentary democracy \n\nInput:What is the capital city of the Philippines?\nOutput: 3. Manila \n\nInput:What is the largest continent on Earth?\nOutput: 3. Africa \n\nInput:What is the most commonly spoken language in the world?\nOutput: 3. Chinese \n\nInput:What is the name of the currency of Japan?\nOutput: 4. Yen \n\nInput:What is the name of the currency of Germany?\nOutput: 9. Euro \n\nInput:What is the name of the currency of the United States?\nOutput: 16. Dollar \n\nInput:What is the name of the currency of the United Kingdom?\nOutput: 17. Pound \n\nInput:What is the name of the currency of France?\nOutput: 18. Euro \n\nInput:What is the name of the currency of Brazil?\nOutput: 20. Real \n\nInput:What is the name of the currency of Russia?\nOutput: 21. Ruble \n\nInput:What is the name of the currency of India?",
+        "label": 4.0,
+        "scenario": "open_question",
+        "category": "casual conversation",
+        "complexity": {
+          "score": 2.35,
+          "level": "Low Complexity",
+          "rule_based_score": 1.68,
+          "perplexity_score": 2.22,
+          "readability_score": 3.26,
+          "vocabulary_score": 2.23,
+          "category_boost": 0.05,
+          "refined_level": "Low"
+        }
+      }
+]

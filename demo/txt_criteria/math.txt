@@ -1,0 +1,7 @@
+1.User Satisfaction: For all key instructions (e.g., answer multiple questions or perform multiple tasks) and explicit constraints (e.g. word count, response length limit, word usage, output format, etc.) provided by the user, the response should be complete in following all of them without any omission.
+2.Correctness: Numerical and algebraic operations must be executed with precision and accuracy. Theorems and formulas should be correctly applied according to mathematical standards, and equations and formulas in responses should be properly formatted.
+3.Step-by-step explanation: Responses should provide a detailed step-by-step explanation of the computational process, including why certain choices were made and why other alternatives were excluded.
+4.Logical consistency: The logical flow of the computation process should be coherent and consistent, ensuring each step logically derives from the previous one.
+5.Accuracy: For objective questions, the final answer must be correct and accurately address the posed question or problem.
+6.Depth of understanding: Responses to subjective questions should demonstrate a deep and comprehensive understanding of the mathematical topic, including detailed analysis and the ability to demonstrate critical thinking.
+7.Structure: Responses should first accurately present the answer in the requested format, followed by a detailed explanation of the process used to arrive at the answer.

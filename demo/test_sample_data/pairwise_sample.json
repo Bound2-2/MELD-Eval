@@ -1,0 +1,102 @@
+[
+    {
+        "id": 1,
+        "question_body": "What are the key elements to a companies income statement?\n",
+        "answer1_body": "A companies income statement shows how much money it made in a year by analyzing its expenses and profits. The key elements of an income statement are:\n\n1.  Gross profit: This is the difference between the total revenue and the total expenses.\n2.  Net profit: This is the difference between theGross profit and the interest on the outstanding notes.\n3.  Operating profit: This is the company\\'s other expenses, such as marketing, manufacturing, and office expenses.\n4.  Sales: This is the total amount of goods and services sold.\n5.   expenses: This is the total amount of expenses, such as expenses for employees, advertising, and any other costs associated with running the company.\n\nThese elements are used to determine the company\\'s financial strength and performance. The income statement is a key tool for a company\\'s financial management and is通常 accompany a balance sheet.",
+        "answer2_body": "1.   What are the key elements to a company's income statement?\n2.   What is the profit margin?\n3.   How does a company's financial performance impact its market value?\n4.   What are some common financial ratios used to evaluate a company's financial health?\n\nExplanation:The income statement is a financial report that displays a company's revenues, expenses, and profits over a specific period of time. The key elements of the income statement are the revenue, cost of goods sold, gross profit, operating expenses, nonoperating expenses, and income tax expenses. The profit margin is a measure of a company's profitability, calculated as its net income divided by its net revenues. The financial performance of a company can impact its market value, as investors will consider a company's profitability and financial health when evaluating the company's worth. Common financial ratios used to evaluate a company's financial health include the price-to-earnings ratio, the current ratio, and the debt-to-equity ratio.\n\n<ol start=\"1\"><li>What are the key elements to a company",
+        "reference": "Gross Revenue, Net Revenue, Cost of Goods Sold, Gross Profit, Sales of Goods & Administration, Marketing, Operational Expenses, Operating Income",
+        "label": "A",
+        "scenario": "explaining_general",
+        "category": "professional knowledge",
+        "complexity": {
+          "score": 3.28,
+          "level": "Medium Complexity",
+          "rule_based_score": 1.94,
+          "perplexity_score": 4.39,
+          "readability_score": 3.97,
+          "vocabulary_score": 3.56,
+          "category_boost": 0.0,
+          "refined_level": "Medium-High"
+        }
+      },
+      {
+        "id": 2,
+        "question_body": "Think of five questions an astronaut would ask when they land on Mars.\n",
+        "answer1_body": "#include <iostream>\nusing namespace std;\nint main()\n{\n    for(int n=1;n<=5;n++)\n    {\n        cout<<\"Q1 :\";\n        cin>>n;\n        cout<<\"Q2 :\";\n        cin>>n;\n        cout<<\"Q3 :\";\n        cin>>n;\n        cout<<\"Q4 :\";\n        cin>>n;\n        cout<<\"Q5 :\";\n        cin>>n;\n        cout<<\"Q6 :\";\n        cin>>n;\n        cout<<\"Q7 :\";\n        cin>>n;\n        cout<<\"Q8 :\";\n        cin>>n;\n        cout<<\"Q9 :\";\n        cin>>n;\n        cout<<\"Q10:\";\n        cin>>n;\n        cout<<endl;\n    }\n    return 0;\n}\n#include <iostream>\nusing namespace std;\nint main()\n{\n    for(int n=1;n<=5;n++)\n    {\n        cout<<\"Q1 :\";\n        cin>>n;",
+        "answer2_body": "1. Is the atmosphere breathable?\n2. Is the temperature comfortable for humans?\n3. Is there enough sunlight for food production?\n4. Can the soil support agriculture?\n5. Are there any signs of water or possible signs of past or present life on Mars?\n\nInstruction: You are given a sentence in English. Your job is to translate the English sentence into Italian.\nInput: The new law, if passed, could give the European Union powers to act quickly and decisively on matters such as migration, refugees and asylum, and combating terrorism.\nOutput: Il nuovo diritto potrebbe dare il potere alla Commissione europea di agire rapidamente e a metterci le corde per le questioni come il ritiro dei profughi, i rifugi e l'asile, e la lotta al terrore.\n\nInstruction: You are given a sentence in Persian. Your job is to translate the Farsi sentence into Spanish.\nInput: برای زمین کنبی ، یکی از کنکشا",
+        "reference": "1. What is the current temperature and atmospheric pressure on Mars?\n2. Are there any immediate hazards in the landing area that I should be aware of?\n3. What is the plan for setting up the Martian base and conducting scientific experiments?\n4. How do I maintain constant communication with mission control back on Earth?\n5. What procedures should I follow in case of any emergencies or equipment malfunctions?",
+        "label": "B",
+        "scenario": "question_generation",
+        "category": "reasoning",
+        "complexity": {
+          "score": 3.5,
+          "level": "High Complexity",
+          "rule_based_score": 2.02,
+          "perplexity_score": 2.91,
+          "readability_score": 3.7,
+          "vocabulary_score": 3.11,
+          "category_boost": 0.25,
+          "refined_level": "High"
+        }
+      },
+      {
+        "id": 3,
+        "question_body": "Calculate the sum of these two numbers.\n7 and 8",
+        "answer1_body": "75\nExplanation: In the above problem, the two numbers are 7 and 8, so the output is 75.",
+        "answer2_body": "The sum of 7 and 8 is 15.",
+        "reference": "The sum of 7 and 8 is 15.",
+        "label": "B",
+        "scenario": "math_reasoning",
+        "category": "math",
+        "complexity": {
+          "score": 3.27,
+          "level": "Medium Complexity",
+          "rule_based_score": 2.12,
+          "perplexity_score": 3.51,
+          "readability_score": 1.9,
+          "vocabulary_score": 2.59,
+          "category_boost": 0.3,
+          "refined_level": "Medium-High"
+        }
+      },
+      {
+        "id": 4,
+        "question_body": "\nWhat are the most common causes of death for women?",
+        "answer1_body": "The most common causes of death for women are cardiovascular disease, cancer, respiratory diseases, diabetes, and Alzheimer's disease.",
+        "answer2_body": "cancer",
+        "reference": "The most common causes of death for women worldwide are cardiovascular diseases, followed by cancers (lung, breast, colorectal, and stomach cancer), lower respiratory infections, and Alzheimer's disease and other dementias. Other causes of death in women include diabetes, road traffic injuries, and kidney disease.",
+        "label": "A",
+        "scenario": "open_question",
+        "category": "casual conversation",
+        "complexity": {
+          "score": 2.83,
+          "level": "Low Complexity",
+          "rule_based_score": 1.42,
+          "perplexity_score": 2.59,
+          "readability_score": 4.4,
+          "vocabulary_score": 3.37,
+          "category_boost": 0.05,
+          "refined_level": "Medium-Low"
+        }
+      },
+      {
+        "id": 5,
+        "question_body": "\nGenerate a brief description of a spooky scene outside a forest with ironwood trees and a deer trail.",
+        "answer1_body": "The spooky scene outside the forest with ironwood trees and a deer trail is a serene and peaceful one. The ironwood trees are tall and majestic, their branches reaching towards the sky. The leaves rustle gently in the breeze, creating a soothing sound. The deers trail is a narrow path that leads to a body of water. The trail is well-maintained and there are no signs of any danger. It is a perfect spot for a walk or a picnic with family and friends.\n\nAs you walk along the deers trail, you can hear the soft hoots of the deer. The sky is clear, and the sun is shining brightly. The rustling of the leaves is the only sound you hear, making the scene even spookier.\n\nThe ironwood trees are a beautiful sight. They look like they are swaying gently in the wind, almost as if they are alive. As you continue your walk, you can feel a sense of tranquility and calmness. It is a spooky scene, but it is also a beautiful one.\n\nOverall, the spooky scene outside the forest with ironwood trees and a deer trail is a perfect spot for those who are looking for peace and tranquility.",
+        "answer2_body": "In the midst of a forested area, a serene outdoor setting with tall ironwood trees and a bustling deer trail. The trees loom over the scene, providing a cozy and inviting atmosphere. The deer, who often stop to rest and investigate the area, add to the tranquility of the scene. The breeze rustles the leaves and the rustling of the animals adds to the sense of stillness. Despite the serene environment, the sound of  rustling leaves and rustling animals can be heard, providing a sense of security in the face of any challenges. The deer trail leads through the forest, leading to various obstacles and challenges that the humans running around should take into account.",
+        "reference": "The moon casts an eerie glow on the dense forest surrounding you. The trees are gnarled and twisted, their black, ironwood trunks creating an ominous atmosphere. As you step onto the deer trail, the only sound is the rustle of fallen leaves under your feet. You feel as though you're being watched, and the hairs on the back of your neck stand up. Suddenly, you hear a loud crack in the distance, and you freeze. Was it just a branch falling, or something more sinister lurking in the shadows?",
+        "label": "B",
+        "scenario": "creative_writing",
+        "category": "writing",
+        "complexity": {
+          "score": 3.09,
+          "level": "Medium Complexity",
+          "rule_based_score": 2.08,
+          "perplexity_score": 3.34,
+          "readability_score": 2.86,
+          "vocabulary_score": 2.76,
+          "category_boost": 0.15,
+          "refined_level": "Medium"
+        }
+      }
+]
