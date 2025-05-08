@@ -275,7 +275,7 @@ After 4-bit quantization, the MELD-8B model will be saved in the `./MELD-Eval/mo
     - Pointwise Grading
     
     ```bash
-    python ./MELD-Eval/src/infer/pointwise_infer.py --model meld --input_file ./MELD-Eval/data/test/pointwise/MELD-Test.json --output_dir results/pointwise/
+    python ./MELD-Eval/src/infer/pointwise_infer.py --model meld --input_file ./MELD-Eval/data/test/pointwise/MELD-Test.json --output_dir ./MELD-Eval/src/results/pointwise/ --criteria_dir ./MELD-Eval/src/criteria/
     ```
    Input Format
     ```json
@@ -295,10 +295,10 @@ After 4-bit quantization, the MELD-8B model will be saved in the `./MELD-Eval/mo
     
     ```bash
     # Using original response order
-    python ./MELD-Eval/src/infer/pairwise_infer.py --model meld --input_file .MELD-Eval/data/test/pairwise/MELD-Test.json --output_dir ./MELD-Eval/src/results/pairwise/ --response_order original
+    python ./MELD-Eval/src/infer/pairwise_infer.py --model meld --input_file ./MELD-Eval/data/test/pairwise/MELD-Test.json --output_dir ./MELD-Eval/src/results/pairwise/ --response_order original --criteria_dir ./MELD-Eval/src/criteria/
 
     # Using swapped response order (for position bias analysis)
-    python ./MELD-Eval/src/infer/pairwise_infer.py --model meld --input_file .MELD-Eval/data/test/pairwise/MELD-Test.json --output_dir ./MELD-Eval/src/results/pairwise/ --response_order swapped
+    python ./MELD-Eval/src/infer/pairwise_infer.py --model meld --input_file ./MELD-Eval/data/test/pairwise/MELD-Test.json --output_dir ./MELD-Eval/src/results/pairwise/ --response_order swapped --criteria_dir ./MELD-Eval/src/criteria/
     ```
    Input Format
     ```json
