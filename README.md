@@ -54,6 +54,35 @@ MELD-Eval/
 │       └── pointwise_infer.py
 ```
 
+## Directory Structure for Models
+
+To help clarify the model directory structure used in this project, here's an overview of the model directories and their purposes:
+```
+MELD-Eval/models/
+├── eval_model/                         # Base models and baseline models
+│   ├── Meta-Llama-3-8B-Instruct/       # Base LLaMA-3 model
+│   ├── autoj-13b/                      # Auto-J baseline model
+│   ├── prometheus-7b-v2.0/             # Prometheus baseline model
+│   └── PandaLM-7B-v1/                  # PandaLM baseline model
+├── MELD/                               # MELD model-related files
+│   ├── lora/                           # LoRA weights from training
+│   │   └── sft/
+│   │       ├── pointwise/              # LoRA weights for pointwise grading
+│   │       └── pairwise/               # LoRA weights for pairwise comparison
+│   ├── pointwise_model/                # Complete pointwise model (after LoRA merging)
+│   ├── pairwise_model/                 # Complete pairwise model (after LoRA merging)
+│   ├── MELD-8B/                        # Final unified MELD model (after MergeKit)
+│   └── Q4_K-dare-merge-judge-llama-3-8b-instruct-gguf  # Quantized model
+```
+**Note**: These models need to be either trained from the base model or downloaded from external sources:
+- Base models (in `eval_model/`): Download from Hugging Face or other model repositories
+- LoRA weights (in `MELD/lora/`): Generated through training with LLaMA-Factory
+- Complete single-task models (in `pointwise_model/` and `pairwise_model/`): Created by merging LoRA weights with the base model
+- Final MELD model (in `MELD-8B/`): Created by merging the single-task models
+- Quantized model: Generated through llama.cpp quantization process
+
+The detailed process for obtaining or training each model is described in the following sections.
+
 ## Model Training Pipeline
 
 The MELD model is trained using the [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) framework. The process includes the following main steps: environment setup, data preparation, model training, and LoRA weight merging. The full workflow is provided below for researchers who wish to reproduce our results.
@@ -140,16 +169,20 @@ The MELD model is trained using the [LLaMA-Factory](https://github.com/hiyouga/L
 
 ---
 
-5. **Merge LoRA Weights into the Base Model**
-    
+5. **Merge LoRA Weights into the Base Model (Step 1 of Model Merging)**
+
+    First, we need to merge the LoRA weights back into the base model to create complete fine-tuned models for both pointwise grading and pairwise comparison.
     ```bash
     # Run the merging script
     bash ./MELD-Eval/models/train/train_merge.sh
     ```
+    This script will create two separate models:
+    - Pointwise grading model at `./MELD-Eval/models/MELD/pointwise_model`
+    - Pairwise comparison model at `./MELD-Eval/models/MELD/pairwise_model`
 
-## Model Merging
+## Model Merging (Step 2 of Model Merging)
 
-After obtaining the trained pointwise scoring model and pairwise comparison model, we use the [MergeKit](https://github.com/arcee-ai/mergekit) to perform model merging, creating the final MELD evaluation model through different merging strategies.
+After obtaining the complete fine-tuned pointwise grading model and pairwise comparison model from Step 1, we use the [MergeKit](https://github.com/arcee-ai/mergekit) to perform model merging, creating the final MELD evaluation model through different merging strategies.
 
 ---
 
