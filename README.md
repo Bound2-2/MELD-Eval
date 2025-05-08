@@ -210,7 +210,7 @@ After 4-bit quantization, the MELD-8B model will be saved in the `./models/merge
 
 ---
 
-2. **模型推理**
+2. **Model Inference**
     
     - Pointwise Grading
     
@@ -264,7 +264,7 @@ After 4-bit quantization, the MELD-8B model will be saved in the `./models/merge
     Additional Pairwise Comparison Parameters
     - `--response_order`: Response evaluation order (original, swapped)
 ---
-3. **结果评估**
+3. **Result Evaluation**
     
     - Pointwise grading
     
