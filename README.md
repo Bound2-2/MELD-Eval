@@ -193,4 +193,89 @@ Next, we'll quantize the merged model using [llama.cpp](https://github.com/ggml-
 
 After 4-bit quantization, the MELD-8B model will be saved in the `./models/merged/MELD-8B directory.`
 
+## Model Inference and Result Evaluation
+---
 
+1. **Model Setup**
+    
+    Before running the evaluation framework, you need to download and set up the required models. The framework uses several models including MELD-8B, LLaMA-3-8B-Instruct, [PandaLM-7B](https://github.com/WeOpenML/PandaLM), [Auto-J-13B](https://github.com/GAIR-NLP/auto-j), and [Prometheus-7B](https://github.com/prometheus-eval/prometheus-eval). After downloading, models should be saved to the following paths:
+    
+    ```
+    MELD: /data/liyijie/models/base-model/meld-model/
+    Llama3: /data/liyijie/models/base-model/llama-3-model/
+    AutoJ: /data/liyijie/models/base-model/autoj-13b/
+    Prometheus: /data/liyijie/models/base-model/prometheus-7b-v2.0
+    PandaLM: /data/liyijie/models/base-model/PandaLM-7B-v1/
+    ```
+
+---
+
+2. **模型推理**
+    
+    * Pointwise Grading
+    
+    ```bash
+    python evaluate_pointwise.py --model meld --input_file data.json --output_dir results/
+    ```
+   Input Format
+    ```json
+    [
+      {
+        "id": 1,
+        "question_body": "Question text",
+        "answer_body": "Response to evaluate",
+        "label": 8,  // Optional human reference score
+        "category": "Category"  // Optional
+      },
+      // More evaluation items...
+    ]
+    ```
+    
+    
+    * Pariwise Comparison
+    
+    ```bash
+    # Using original response order
+    python evaluate_pairwise.py --model meld --input_file data.json --output_dir results/ --response_order original
+
+    # Using swapped response order (for position bias analysis)
+    python evaluate_pairwise.py --model meld --input_file data.json --output_dir results/ --response_order swapped
+    ```
+   Input Format
+    ```json
+    [
+      {
+        "id": 1,
+        "question_body": "Question text",
+        "answer1_body": "First response",
+        "answer2_body": "Second response",
+        "label": "A",  // Human reference label (A, B, or Tie)
+        "category": "Category"  // Optional
+      },
+      // More evaluation items...
+    ]
+    ```
+     Command-line Arguments
+    * `--model`: Evaluation model to run (meld, llama3, autoj, prometheus, pandalm, all)
+    * `--input_file`: Path to input JSON file
+    * `--output_dir`: Directory for output files
+    * `--criteria_dir`: Directory containing criteria files (required for MELD)
+    * `--*_model_path`: Paths to respective evaluation models
+    * `--seed`: Random seed for reproducibility
+    
+    Additional Pairwise Comparison Parameters
+    * `--response_order`: Response evaluation order (original, swapped)
+---
+3. **结果评估**
+    
+    * Pointwise grading
+    
+    ```bash
+    python evaluate_pointwise.py --model all --input_file data.json --output_dir correlation_results.csv/
+    ```
+    * Pariwise comparison
+    
+    ```bash
+   python analyze_correlation.py --input_dir results/ --output_csv metrics_summary.csv
+    ```
+---
