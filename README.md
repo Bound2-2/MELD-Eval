@@ -66,6 +66,7 @@ The MELD model is trained using the [LLaMA-Factory](https://github.com/hiyouga/L
     
     ```bash
     # Clone the LLaMA-Factory repository
+    cd ./MELD-Eval
     git clone https://github.com/hiyouga/LLaMA-Factory.git
     # Create and activate the conda environment
     conda create -n llama_factory python=3.12
@@ -143,7 +144,7 @@ The MELD model is trained using the [LLaMA-Factory](https://github.com/hiyouga/L
     
     ```bash
     # Run the merging script
-    bash ./MELD-Eval/models/train/merge_models.sh
+    bash ./MELD-Eval/models/train/train_merge.sh
     ```
 
 ## Model Merging
@@ -217,6 +218,7 @@ Next, we'll quantize the merged model using [llama.cpp](https://github.com/ggml-
    ```
    ```bash
    # Install llama.cpp
+   cd ./MELD-Eval
    git clone https://github.com/ggerganov/llama.cpp.git
    cd llama.cpp
    ```
@@ -237,7 +239,7 @@ Next, we'll quantize the merged model using [llama.cpp](https://github.com/ggml-
 
    Next, we will convert the model stored in `./MELD-Eval/models/MELD/MELD-8B` to the GGUF format.
    ```bash
-   python convert_hf_to_gguf.py ./MELD-Eval/models/MELD/MELD-8B --outfile ./MELD-Eval/models/MELD/dare-merge-judge-llama-3-8b-instruct-gguf
+   python ./MELD-Eval/llama.cpp/convert_hf_to_gguf.py ./MELD-Eval/models/MELD/MELD-8B --outfile ./MELD-Eval/models/MELD/dare-merge-judge-llama-3-8b-instruct-gguf
    ```
 ---
 
@@ -259,11 +261,11 @@ After 4-bit quantization, the MELD-8B model will be saved in the `./MELD-Eval/mo
     Before running the evaluation framework, you need to download and set up the required models. The framework uses several models including MELD-8B, LLaMA-3-8B-Instruct, [PandaLM-7B](https://github.com/WeOpenML/PandaLM), [Auto-J-13B](https://github.com/GAIR-NLP/auto-j), and [Prometheus-7B](https://github.com/prometheus-eval/prometheus-eval). After downloading, models should be saved to the following paths:
     
     ```
-    MELD: /data/liyijie/models/base-model/meld-model/
-    Llama3: /data/liyijie/models/base-model/llama-3-model/
-    AutoJ: /data/liyijie/models/base-model/autoj-13b/
-    Prometheus: /data/liyijie/models/base-model/prometheus-7b-v2.0
-    PandaLM: /data/liyijie/models/base-model/PandaLM-7B-v1/
+    MELD: ./MELD-Eval/models/MELD/MELD-8B/
+    Llama3: ./MELD-Eval/models/eval_model/llama-3-model/
+    AutoJ: ./MELD-Eval/models/eval_model/autoj-13b/
+    Prometheus: ./MELD-Eval/models/eval_model/prometheus-7b-v2.0
+    PandaLM: ./MELD-Eval/models/eval_model/PandaLM-7B-v1/
     ```
 
 ---
@@ -273,7 +275,7 @@ After 4-bit quantization, the MELD-8B model will be saved in the `./MELD-Eval/mo
     - Pointwise Grading
     
     ```bash
-    python evaluate_pointwise.py --model meld --input_file data.json --output_dir results/
+    python ./MELD-Eval/src/infer/pointwise_infer.py --model meld --input_file data.json --output_dir results/
     ```
    Input Format
     ```json
@@ -293,10 +295,10 @@ After 4-bit quantization, the MELD-8B model will be saved in the `./MELD-Eval/mo
     
     ```bash
     # Using original response order
-    python evaluate_pairwise.py --model meld --input_file data.json --output_dir results/ --response_order original
+    python ./MELD-Eval/src/infer/pairwise_infer.py --model meld --input_file data.json --output_dir results/ --response_order original
 
     # Using swapped response order (for position bias analysis)
-    python evaluate_pairwise.py --model meld --input_file data.json --output_dir results/ --response_order swapped
+    python ./MELD-Eval/src/infer/pointwise_eval.py --model meld --input_file data.json --output_dir results/ --response_order swapped
     ```
    Input Format
     ```json
@@ -327,11 +329,11 @@ After 4-bit quantization, the MELD-8B model will be saved in the `./MELD-Eval/mo
     - Pointwise grading
     
     ```bash
-    python evaluate_pointwise.py --model all --input_file data.json --output_dir correlation_results.csv/
+    python ./MELD-Eval/src/eval/evaluate_pointwise.py --model all --input_file data.json --output_dir correlation_results.csv/
     ```
     - Pariwise comparison
     
     ```bash
-   python analyze_correlation.py --input_dir results/ --output_csv metrics_summary.csv
+   python ./MELD-Eval/src/eval/analyze_correlation.py --input_dir results/ --output_csv metrics_summary.csv
     ```
 ---
