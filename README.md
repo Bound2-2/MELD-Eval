@@ -1,7 +1,11 @@
 # MELD-Eval
 
 A Fine-Grained Evaluation Framework for Language Models: Combining Pointwise Grading and Pairwise Comparison
- 
+
+```
+demo/demonstration.mp4
+
+```
 ## Directory Structure
 
 ```
