@@ -275,7 +275,7 @@ After 4-bit quantization, the MELD-8B model will be saved in the `./MELD-Eval/mo
     - Pointwise Grading
     
     ```bash
-    python ./MELD-Eval/src/infer/pointwise_infer.py --model meld --input_file data.json --output_dir results/
+    python ./MELD-Eval/src/infer/pointwise_infer.py --model meld --input_file .MELD-Eval/data/test/pointwise/MELD-Test.json --output_dir results/pointwise/
     ```
    Input Format
     ```json
@@ -295,10 +295,10 @@ After 4-bit quantization, the MELD-8B model will be saved in the `./MELD-Eval/mo
     
     ```bash
     # Using original response order
-    python ./MELD-Eval/src/infer/pairwise_infer.py --model meld --input_file data.json --output_dir results/ --response_order original
+    python ./MELD-Eval/src/infer/pairwise_infer.py --model meld --input_file .MELD-Eval/data/test/pairwise/MELD-Test.json --output_dir ./MELD-Eval/src/results/pairwise/ --response_order original
 
     # Using swapped response order (for position bias analysis)
-    python ./MELD-Eval/src/infer/pointwise_eval.py --model meld --input_file data.json --output_dir results/ --response_order swapped
+    python ./MELD-Eval/src/infer/pairwise_infer.py --model meld --input_file .MELD-Eval/data/test/pairwise/MELD-Test.json --output_dir ./MELD-Eval/src/results/pairwise/ --response_order swapped
     ```
    Input Format
     ```json
@@ -329,11 +329,11 @@ After 4-bit quantization, the MELD-8B model will be saved in the `./MELD-Eval/mo
     - Pointwise grading
     
     ```bash
-    python ./MELD-Eval/src/eval/evaluate_pointwise.py --model all --input_file data.json --output_dir correlation_results.csv/
+    python ./MELD-Eval/src/eval/evaluate_pointwise.py --input_dir ./MELD-Eval/src/results/pointwise/ --output_csv ./MELD-Eval/src/results/pointwise/correlation_results.csv
     ```
     - Pariwise comparison
     
     ```bash
-   python ./MELD-Eval/src/eval/analyze_correlation.py --input_dir results/ --output_csv metrics_summary.csv
+   python ./MELD-Eval/src/eval/evaluate_pairwise.py --input_dir ./MELD-Eval/src/results/pairwise/ --output_csv ./MELD-Eval/src/results/pairwise/pairwise_metrics.csv
     ```
 ---
