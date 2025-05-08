@@ -186,8 +186,8 @@ After obtaining the trained pointwise scoring model and pairwise comparison mode
 
     # Or try other merging strategies
     # mergekit-yaml ./MELD-Eval/models/merge/linear.yaml --out ./MELD-Eval/models/MELD-8B-linear
-    # mergekit-yaml ./MELD-Eval/models/mergeslerp.yaml --out ./MELD-Eval/models/MELD-8B-slerp
-    # mergekit-yaml ./MELD-Eval/models/mergeties.yaml --out ./MELD-Eval/models/MELD-8B-ties
+    # mergekit-yaml ./MELD-Eval/models/merge/slerp.yaml --out ./MELD-Eval/models/MELD-8B-slerp
+    # mergekit-yaml ./MELD-Eval/models/merge/ties.yaml --out ./MELD-Eval/models/MELD-8B-ties
     ```
 
 After merging is complete, the final MELD model will be saved in the `./MELD-Eval/models/MELD/MELD-8B` directory.
@@ -262,7 +262,7 @@ After 4-bit quantization, the MELD-8B model will be saved in the `./MELD-Eval/mo
     
     ```
     MELD: ./MELD-Eval/models/MELD/MELD-8B/
-    Llama3: ./MELD-Eval/models/eval_model/llama-3-model/
+    Llama3: ./MELD-Eval/models/eval_model/Meta-Llama-3-8B-Instruct
     AutoJ: ./MELD-Eval/models/eval_model/autoj-13b/
     Prometheus: ./MELD-Eval/models/eval_model/prometheus-7b-v2.0
     PandaLM: ./MELD-Eval/models/eval_model/PandaLM-7B-v1/
@@ -275,7 +275,7 @@ After 4-bit quantization, the MELD-8B model will be saved in the `./MELD-Eval/mo
     - Pointwise Grading
     
     ```bash
-    python ./MELD-Eval/src/infer/pointwise_infer.py --model meld --input_file .MELD-Eval/data/test/pointwise/MELD-Test.json --output_dir results/pointwise/
+    python ./MELD-Eval/src/infer/pointwise_infer.py --model meld --input_file ./MELD-Eval/data/test/pointwise/MELD-Test.json --output_dir results/pointwise/
     ```
    Input Format
     ```json
