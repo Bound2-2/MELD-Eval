@@ -1,0 +1,9 @@
+models:
+  - model: /data/sunyuan/liyijie/models/sft-models/pointwise-woref-llama-3-8b-instruct/
+    parameters:
+      weight: 0.5
+  - model: /data/sunyuan/liyijie/models/sft-models/pairwise-woref-llama-3-8b-instruct/
+    parameters:
+      weight: 0.5
+merge_method: linear
+dtype: float16

@@ -1,0 +1,7 @@
+1.Code Correctness: The code must execute correctly, meet the specifications required, and be free of syntax errors. This is the most basic and crucial criterion to ensure the code works as expected.
+2.Completeness of Components and Functionality: The code should include all necessary components and functionalities required by the user's query. It should cover all relevant use cases and handle potential edge cases effectively.
+3.Code Readability: The code should be well-structured, properly indented, and use meaningful variable and function names. It should follow consistent coding conventions and formatting standards to ensure clarity and ease of understanding.
+4.Input/Output Requirements: The code should adhere to the user-specified requirements regarding input and output formats, data types, lengths, sizes, etc., if specified. This ensures the code meets the specific operational needs of the user.
+5.Documentation: The code should be well-documented, including comments that explain the purpose and functionality of different parts. Documentation should also provide information on how to use and extend the generated code.
+6.Modularity: The code should be modular with a clear separation of concerns, utilizing appropriate functions, classes, and modules to enhance reusability and maintainability.
+7.Running Efficiency: The code should be optimized for performance and resource usage. It should avoid unnecessary computations, minimize code duplication, and use efficient algorithms and data structures.
