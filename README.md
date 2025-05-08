@@ -1,3 +1,66 @@
+# ProjectName
+
+A Fine-Grained Evaluation Framework for Language Models: Combining Pointwise Grading and Pairwise Comparison
+
+<!-- PROJECT SHIELDS -->
+
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+ 
+## 目录
+
+MELD-Eval/
+├── README.md                      # Project overview and usage instructions
+├── requirement.txt               # Python dependencies required for the project
+├── data/                         # All datasets used for training and evaluation
+│   ├── test/                     # Evaluation datasets
+│   │   ├── bias/                 # For bias detection (position, content, length, etc.)
+│   │   │   ├── LLMBar/           # Five sub-datasets for bias testing
+│   │   │   └── MELD_length_bias_test.json  # Test set for analyzing length bias
+│   │   ├── pairwise/             # Datasets for pairwise comparison evaluation
+│   │   │   ├── MELD-Test.json
+│   │   │   └── PandaLM-Test.json
+│   │   └── pointwise/            # Datasets for pointwise scoring evaluation
+│   │       ├── Auto-J-Test.json
+│   │       ├── Feedback-Bech.json
+│   │       └── MELD-Test.json
+│   ├── train/                    # General-purpose training sets (raw format)
+│   │   ├── pairwise.json
+│   │   └── pointwise.json
+│   └── train_for_llama_factory/ # Training sets formatted for LLaMA-Factory
+│       ├── pairwise.json
+│       └── pointwise.json
+├── model/                        # Model training and merging configs/scripts
+│   ├── merge/                    # Configuration files for model merging strategies
+│   │   ├── dare.yaml
+│   │   ├── linear.yaml
+│   │   ├── slerp.yaml
+│   │   └── ties.yaml
+│   └── train/                    # Shell scripts to train individual and merged models
+│       ├── train_merge.sh
+│       ├── train_pairwise.sh
+│       └── train_pointwise.sh
+├── src/                          # Source code for evaluation and inference
+│   ├── criteria/                 # Evaluation criteria definitions for 8 major task categories
+│   │   ├── casual conversation.txt
+│   │   ├── coding.txt
+│   │   ├── math.txt
+│   │   ├── nlp task.txt
+│   │   ├── professional knowledge.txt
+│   │   ├── reasoning.txt
+│   │   ├── roleplay.txt
+│   │   └── writing.txt
+│   ├── eval/                     # Scripts for evaluating model predictions
+│   │   ├── pairwise_eval.py
+│   │   └── pointwise_eval.py
+│   └── infer/                    # Inference scripts for generating model outputs
+│       ├── pairwise_infer.py
+│       └── pointwise_infer.py
+
 ## Model Training Pipeline
 
 The MELD model is trained using the [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) framework. The process includes the following main steps: environment setup, data preparation, model training, and LoRA weight merging. The full workflow is provided below for researchers who wish to reproduce our results.
