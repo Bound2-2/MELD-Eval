@@ -2,7 +2,9 @@
 
 A Fine-Grained Evaluation Framework for Language Models: Combining Pointwise Grading and Pairwise Comparison
 
-<!-- Failed to upload "Video 2025-05-09 02.17.48.mov" -->
+
+https://github.com/user-attachments/assets/30b37cb1-f670-491d-8a7b-084e850845c3
+
 
 ## Directory Structure
 
