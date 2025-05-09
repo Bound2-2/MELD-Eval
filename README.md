@@ -34,6 +34,27 @@ MELD-Eval/
 │   └── train_for_llama_factory/ # Training sets formatted for LLaMA-Factory
 │       ├── pairwise.json
 │       └── pointwise.json
+├── demo/                         # Demo scripts, prompts, and example inputs
+│   ├── MELD.Modelfile            # Model checkpoint or config for demonstration
+│   ├── main.py                   # Entry point script for running demo evaluation
+│   ├── prompt_template/          # Prompt templates for pointwise and pairwise protocols
+│   │   ├── PAIRWISE_WOR.txt
+│   │   ├── PAIRWISE_WR.txt
+│   │   ├── POINTWISE_WOR.txt
+│   │   └── POINTWISE_WR.txt
+│   ├── requirements.txt          # Python dependencies for running the demo
+│   ├── test_sample_data/         # Small test samples for demo usage
+│   │   ├── pairwise_sample.json
+│   │   └── pointwise_sample.json
+│   └── txt_criteria/             # Evaluation criteria for each task category
+│       ├── casual conversation.txt
+│       ├── coding.txt
+│       ├── math.txt
+│       ├── nlp task.txt
+│       ├── professional knowledge.txt
+│       ├── reasoning.txt
+│       ├── roleplay.txt
+│       └── writing.txt
 ├── model/                        # Model training and merging configs/scripts
 │   ├── merge/                    # Configuration files for model merging strategies
 │   │   ├── dare.yaml
@@ -60,6 +81,7 @@ MELD-Eval/
 │   └── infer/                    # Inference scripts for generating model outputs
 │       ├── pairwise_infer.py
 │       └── pointwise_infer.py
+
 ```
 
 ## Directory Structure for Models
