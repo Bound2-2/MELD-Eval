@@ -10,7 +10,7 @@ https://github.com/user-attachments/assets/dac18c34-6b96-4bd0-aee0-6faba6bc1b9a
 
 
 
-## Directory Structure
+## 📃 Directory Structure
 
 ```
 MELD-Eval/
@@ -84,7 +84,7 @@ MELD-Eval/
 
 ```
 
-## Directory Structure for Models
+## 📄 Directory Structure for Models
 
 To help clarify the model directory structure used in this project, here's an overview of the model directories and their purposes:
 ```
@@ -113,7 +113,7 @@ MELD-Eval/models/
 
 The detailed process for obtaining or training each model is described in the following sections.
 
-## Model Training Pipeline
+## ⚙️ Model Training Pipeline
 
 The MELD model is trained using the [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) framework. The process includes the following main steps: environment setup, data preparation, model training, and LoRA weight merging. The full workflow is provided below for researchers who wish to reproduce our results.
 
@@ -210,7 +210,7 @@ The MELD model is trained using the [LLaMA-Factory](https://github.com/hiyouga/L
     - Pointwise grading model at `./MELD-Eval/models/MELD/pointwise_model`
     - Pairwise comparison model at `./MELD-Eval/models/MELD/pairwise_model`
 
-## Model Merging (Step 2 of Model Merging)
+## ⚙️ Model Merging (Step 2 of Model Merging)
 
 After obtaining the complete fine-tuned pointwise grading model and pairwise comparison model from Step 1, we use the [MergeKit](https://github.com/arcee-ai/mergekit) to perform model merging, creating the final MELD evaluation model through different merging strategies.
 
@@ -255,7 +255,7 @@ After obtaining the complete fine-tuned pointwise grading model and pairwise com
 
 After merging is complete, the final MELD model will be saved in the `./MELD-Eval/models/MELD/MELD-8B` directory.
 
-## Model quantization
+## ⚙️  Model quantization
 
 Next, we'll quantize the merged model using [llama.cpp](https://github.com/ggml-org/llama.cpp).
 
@@ -316,7 +316,7 @@ Next, we'll quantize the merged model using [llama.cpp](https://github.com/ggml-
 
 After 4-bit quantization, the MELD-8B model will be saved in the `./MELD-Eval/models/MELD/Q4_K-dare-merge-judge-llama-3-8b-instruct-gguf`
 
-## Model Inference and Result Evaluation
+## 💡 Model Inference and Result Evaluation
 ---
 
 1. **Model Setup**
@@ -400,3 +400,54 @@ After 4-bit quantization, the MELD-8B model will be saved in the `./MELD-Eval/mo
    python ./MELD-Eval/src/eval/evaluate_pairwise.py --input_dir ./MELD-Eval/src/results/pairwise/ --output_csv ./MELD-Eval/src/results/pairwise/pairwise_metrics.csv
     ```
 ---
+## 🔧 Demo Deployment and Usage
+---
+
+1. **Create the Demo Environment**    
+    ```
+    # Create a new environment
+    conda create -n meld-demo python=3.12 -y
+    conda activate meld-demo
+
+    # Navigate to demo directory and install dependencies
+    cd ./MELD-Eval/demo
+    pip install -r requirements.txt
+    ```
+
+---
+
+2. **Install and Configure Ollama**
+    The demo system uses [Ollama](https://ollama.com/) for efficient model serving. To install and launch Ollama:
+    ```bash
+    # For Linux or Mac
+    brew install ollama       # macOS
+    # or
+    curl -fsSL https://ollama.com/install.sh | sh  # Linux
+
+    # Start Ollama server
+    ollama serve
+    ```
+---
+3. **Configure the MELD Model for Ollama**
+    
+    Load the MELD model using Ollama. Ensure the `MELD.Modelfile` is located in the `demo/Modelfile` directory.
+    
+    ```bash
+    # Load the MELD model into Ollama
+    ollama create q4k_meld -f ./MELD-Eval/demo/Modelfile/MELD.Modelfile
+    ```
+    This command registers the quantized MELD model under the alias `q4k_meld`.
+---
+4. **Launch the Demo Interface**
+    
+    Start the streamlit-based UI for interactive usage:
+    
+    ```bash
+    streamlit run main.py \
+    --server.address=127.0.0.1 \
+    --server.port=6006 \
+    --server.enableXsrfProtection=false
+    ```
+    After launch, open your browser and navigate to `http://127.0.0.1:6006` to access the demo interface.
+---
+
