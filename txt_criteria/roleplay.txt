@@ -1,7 +1,0 @@
-1.User Satisfaction: For all key instructions (e.g., answer multiple questions or perform multiple tasks) and explicit constraints (e.g. word count, response length limit, word usage, output format, etc.) provided by the user, the response should be complete in following all of them without any omission.
-2.accuracy: All objective content provided or mentioned in the response should be accurate and correct. 
-3.information richness: The response is encouraged to provide rich, detailed and professional information, e.g. by providing examples, explanations, citations, and additional information. 
-4.text quality: The response should be grammatically correct, free of spelling errors or typos, use punctuation marks properly and consistently. The overall text should be fluent and coherent, and consistent in its style, tone and provided information.
-5.Logical Coherence: The response should logically adhere to the scenario's context, maintaining consistency with the character’s role and previously established plot elements, ensuring a seamless flow in dialogue and actions.
-6.Creativity: Responses should demonstrate originality and inventiveness, offering unique solutions or perspectives that enhance the storytelling and engage participants in the role-playing experience.
-7.Richness: The response should be detailed and informative, enriching the scenario with nuanced descriptions, in-depth character exploration, and comprehensive background information that deepens engagement and understanding.
